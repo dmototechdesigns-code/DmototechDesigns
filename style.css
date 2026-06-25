@@ -1,0 +1,1056 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f6f7fb;
+}
+
+/* ===== PRODUCTS ===== */
+.dochaki-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 15px;
+}
+
+.dochaki-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+@media (max-width: 992px) {
+    .dochaki-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+    .dochaki-grid { grid-template-columns: 1fr; }
+}
+
+/* PRODUCT CARD */
+.dochaki-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.dochaki-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px rgba(0,122,255,0.15);
+}
+
+/* BADGE */
+.dochaki-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ff3b30;
+    color: #fff;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.dochaki-offer {
+    background: #007aff;
+}
+
+/* IMAGE */
+.dochaki-img-box {
+    height: 260px;
+}
+
+.dochaki-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* CONTENT */
+.dochaki-content {
+    padding: 20px;
+}
+
+.dochaki-category {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.dochaki-title {
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+.dochaki-rating {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+.dochaki-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.dochaki-btn:hover {
+    background: #007aff;
+}
+
+/* ===== FEATURES ===== */
+.dochaki-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.dochaki-title-main {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #111;
+}
+
+.dochaki-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.dochaki-feature-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.dochaki-icon {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff0f0;
+    color: #ff3e3e;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* ===== RIDERS TESTIMONIALS SECTION (FIXED) ===== */
+.dochaki-testimonial-section {
+    max-width: 1200px;
+    margin: 60px auto 30px auto;
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.dochaki-testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+@media (max-width: 992px) {
+    .dochaki-testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+    .dochaki-testimonial-grid { grid-template-columns: 1fr; }
+}
+
+/* Unique Testimonial Card Layout */
+.dochaki-t-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.dochaki-t-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.dochaki-card-media-wrapper {
+    position: relative;
+    height: 280px;
+    background-color: #111;
+}
+
+.dochaki-t-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Carousel Buttons inside Card */
+.dochaki-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 12px;
+    transition: 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.dochaki-carousel-btn:hover {
+    background-color: #fff;
+}
+
+.dochaki-btn-prev { left: 12px; }
+.dochaki-btn-next { right: 12px; }
+
+/* Carousel Dots Indicator */
+.dochaki-carousel-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.dochaki-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 0.2s;
+}
+
+.dochaki-dot.active {
+    background-color: #fff;
+    width: 10px;
+    border-radius: 4px;
+}
+
+/* Center aligned Testimonial Content Block */
+.dochaki-content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.dochaki-stars {
+    color: #ffcc00;
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.dochaki-review-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Profile Footer inside Card */
+.dochaki-profile-footer {
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dochaki-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dochaki-user-meta {
+    text-align: left;
+}
+
+.dochaki-user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 1px;
+}
+
+.dochaki-user-role {
+    font-size: 12px;
+    color: #888;
+}
+
+
+
+/* home page */
+/* ===== HERO SECTION ===== */
+.dochaki-hero {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    background: url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Dark overlay to make text highly readable */
+.dochaki-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+}
+
+.dochaki-hero-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.dochaki-hero-content {
+    max-width: 650px;
+    color: #fff;
+}
+
+.dochaki-hero-tagline {
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #007aff; /* Brand Accent Color */
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.dochaki-hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+.dochaki-hero-quote {
+    font-size: 14px;
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 30px;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
+/* Actions & Buttons */
+.dochaki-hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 320px; /* Aligns with wireframe button widths */
+}
+
+.dochaki-hero-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.dochaki-hero-btn-primary {
+    background: #e63946; /* Matching red/orange button highlight */
+    color: #fff;
+}
+
+.dochaki-hero-btn-primary:hover {
+    background: #ff3b30;
+    transform: translateX(4px);
+}
+
+.dochaki-hero-btn-dark {
+    background: #111111;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dochaki-hero-btn-dark:hover {
+    background: #007aff;
+    border-color: #007aff;
+    transform: translateX(4px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dochaki-hero {
+        min-height: 65vh;
+        background-position: 35% center; /* Adjusts image focal point on mobile */
+    }
+    .dochaki-hero-title {
+        font-size: 1.8rem;
+    }
+    .dochaki-hero-actions {
+        max-width: 100%;
+    }
+}
+
+
+
+/* Header start */
+
+/* ===== MOTO HEADER NAVIGATION ===== */
+.moto-header {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.moto-header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Creates the space separation seen in image_26c262.png */
+}
+
+/* Logo Sizing */
+.moto-logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.moto-brand-logo {
+    height: 50px; /* Adjust based on your logo design proportion */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Center Menu Styles */
+.moto-navbar {
+    display: flex;
+    align-items: center;
+}
+
+.moto-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 35px; /* Spaces out your Home, About, Shop links nicely */
+}
+
+.moto-nav-link {
+    text-decoration: none;
+    color: #222222;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.2s ease-in-out;
+    position: relative;
+    padding: 5px 0;
+}
+
+.moto-nav-link:hover,
+.moto-nav-link.moto-active {
+    color: #e63946; /* Matching accent color used across layout */
+}
+
+/* Underline animation on hover */
+.moto-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e63946;
+    transition: width 0.2s ease;
+}
+
+.moto-nav-link:hover::after,
+.moto-nav-link.moto-active::after {
+    width: 100%;
+}
+
+/* Right Side Utilities */
+.moto-header-utils {
+    display: flex;
+    align-items: center;
+}
+
+.moto-utility-link {
+    color: #222222;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 8px;
+}
+
+.moto-utility-link:hover {
+    color: #e63946;
+}
+
+/* Responsive Handling (Mobile view behavior) */
+@media (max-width: 768px) {
+    .moto-header-container {
+        padding: 12px 15px;
+    }
+    
+    .moto-nav-list {
+        gap: 15px; /* Compresses menu items closer on tablets */
+    }
+    
+    .moto-nav-link {
+        font-size: 13px;
+    }
+    
+    .moto-brand-logo {
+        height: 40px;
+    }
+}
+
+/* Footer section start  */
+
+/* ===== UNIQUE MOTO FOOTER ===== */
+.foot-core-main {
+    background-color: #111111;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 60px;
+    margin-top: 60px;
+    border-top: 3px solid #e63946; /* Matching accent brand line */
+}
+
+.foot-core-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px 40px 15px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+}
+
+/* Column Specific Styles */
+.foot-core-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.foot-core-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    align-self: flex-start;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.foot-core-desc {
+    font-size: 13px;
+    color: #aaaaaa;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+}
+
+.foot-core-heading {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 25px 0;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Subtle accent dot under titles */
+.foot-core-heading::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #e63946;
+    margin-top: 8px;
+}
+
+/* List Links Logic */
+.foot-core-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.foot-core-links a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.foot-core-links a:hover {
+    color: #e63946;
+    transform: translateX(4px);
+}
+
+/* Contact Info Icons Block */
+.foot-core-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.foot-core-info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #aaaaaa;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.foot-core-info-list i {
+    color: #e63946;
+    font-size: 15px;
+    margin-top: 2px;
+}
+
+.foot-core-info-list a {
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.foot-core-info-list a:hover {
+    color: #ffffff;
+}
+
+/* Social Icon Badges */
+.foot-core-socials {
+    display: flex;
+    gap: 10px;
+}
+
+.foot-core-social-link {
+    width: 36px;
+    height: 36px;
+    background-color: #222222;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.foot-core-social-link:hover {
+    background-color: #e63946;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* ===== PREMIUM COPYRIGHT STRIP ===== */
+.foot-core-bottom-strip {
+    background-color: #0a0a0a;
+    border-top: 1px solid #222222;
+    padding: 20px 0;
+}
+
+.foot-core-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.foot-core-copyright {
+    font-size: 13px;
+    color: #777777;
+    margin: 0;
+}
+
+.foot-core-legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.foot-core-legal-links a {
+    color: #777777;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.foot-core-legal-links a:hover {
+    color: #aaaaaa;
+}
+
+/* Responsive Grid Tweaks */
+@media (max-width: 992px) {
+    .foot-core-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .foot-core-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .foot-core-bottom-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+    /* ===== DMOTOTECH UNIFIED FEEDS DESIGN ENGINE ===== */
+:root {
+    --moto-brand-red: #e63946;
+    --moto-dark-bg: #111111;
+    --moto-light-bg: #fafafa;
+    --moto-text-main: #1f2937;
+    --moto-text-muted: #4b5563;
+    --moto-radius-main: 16px;
+    --moto-transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    --moto-insta-linear: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.moto-feeds-wrapper {
+    background-color: var(--moto-light-bg);
+    padding: 80px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.moto-feeds-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+/* Reusable Header Engine */
+.moto-feed-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.moto-feed-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(220, 39, 67, 0.08);
+    color: #dc2743;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.moto-feed-badge.moto-badge-yt {
+    background: rgba(230, 57, 70, 0.08);
+    color: var(--moto-brand-red);
+}
+
+.moto-feed-title {
+    font-size: 32px;
+    color: var(--moto-dark-bg);
+    font-weight: 800;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.5px;
+}
+
+.moto-feed-subtitle {
+    font-size: 15px;
+    color: var(--moto-text-muted);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Master Responsive Grid Setup */
+.moto-grid {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 35px;
+}
+
+.moto-insta-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.moto-yt-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Card Foundation */
+.moto-card {
+    background: #ffffff;
+    border-radius: var(--moto-radius-main);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: var(--moto-transition);
+}
+
+.moto-card-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Pure Square for Insta */
+    overflow: hidden;
+    background: #eaeaea;
+}
+
+.moto-card-media.moto-ratio-16-9 {
+    aspect-ratio: 16 / 9; /* Exact Video Dimension */
+}
+
+.moto-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--moto-transition);
+}
+
+/* Overlays & Effects */
+.moto-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--moto-transition);
+    color: #ffffff;
+}
+
+.moto-overlay-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+    transform: translateY(10px);
+    transition: var(--moto-transition);
+}
+
+.moto-overlay-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    transform: translateY(15px);
+    transition: var(--moto-transition);
+}
+
+.moto-overlay-meta i { margin-right: 5px; }
+
+/* Interactive Hover States */
+.moto-insta-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.moto-insta-card:hover img { transform: scale(1.05); }
+.moto-insta-card:hover .moto-card-overlay { opacity: 1; }
+.moto-insta-card:hover .moto-overlay-icon,
+.moto-insta-card:hover .moto-overlay-meta { transform: translateY(0); }
+
+/* YouTube Play Button Styling */
+.moto-yt-card { cursor: pointer; }
+.moto-play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--moto-transition);
+}
+
+.moto-play-btn {
+    width: 68px;
+    height: 46px;
+    background-color: var(--moto-brand-red);
+    color: #ffffff;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    box-shadow: 0 6px 20px rgba(230, 57, 70, 0.4);
+    transition: var(--moto-transition);
+}
+
+.moto-yt-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(230, 57, 70, 0.1);
+}
+.moto-yt-card:hover .moto-play-overlay { background: rgba(0, 0, 0, 0.4); }
+.moto-yt-card:hover .moto-play-btn {
+    transform: scale(1.12);
+    background-color: #ff0000;
+}
+
+/* Buttons and Separators */
+.moto-action-row { text-align: center; }
+.moto-btn-insta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    background: var(--moto-insta-linear);
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 50px;
+    box-shadow: 0 8px 24px rgba(220, 39, 67, 0.25);
+    transition: var(--moto-transition);
+}
+
+.moto-btn-insta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(220, 39, 67, 0.45);
+}
+
+.moto-divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.06) 50%, transparent);
+}
+
+/* UI Lightbox Engine */
+.moto-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.moto-lightbox.active-view {
+    display: flex;
+    opacity: 1;
+}
+
+.moto-lightbox-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 850px;
+    background: #000000;
+    border-radius: var(--moto-radius-main);
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.moto-lightbox-body {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.moto-lightbox-body iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.moto-lightbox-close {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 38px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s;
+}
+
+.moto-lightbox-close:hover { color: var(--moto-brand-red); }
+
+/* Responsive Engines */
+@media (max-width: 992px) {
+    .moto-insta-grid { grid-template-columns: repeat(2, 1fr); }
+    .moto-yt-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .moto-feeds-wrapper { padding: 50px 15px; }
+    .moto-insta-grid, .moto-yt-grid { grid-template-columns: 1fr; gap: 16px; }
+    .moto-feed-title { font-size: 24px; }
+}
