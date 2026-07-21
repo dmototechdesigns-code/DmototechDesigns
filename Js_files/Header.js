@@ -92,7 +92,7 @@
             const showLogout = isLoggedIn && isHomePage();
 
             const loginHref = getProjectPath("../Auth/Login/Login.html");
-            const signupHref = getProjectPath("/DmototechDesigns/Auth/Signup/Signup.html");
+            const signupHref = getProjectPath("Auth/Signup/Signup.html");
             const accountHref = getProjectPath("My_Account_page/My_account.html");
 
             if (desktopGroup) {
