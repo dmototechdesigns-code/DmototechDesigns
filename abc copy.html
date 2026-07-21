@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Windshields & Touring Accessories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { inter: ['Inter', 'sans-serif'] },
+                    colors: {
+                        dark: { 900: '#050505', 800: '#0A0A0A', 700: '#111111', 600: '#1a1a1a' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #404040;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #525252;
+        }
+
+        /* Hero BG */
+        .hero-bg {
+            background: url('https://res.cloudinary.com/dhrqbdrkh/image/upload/v1782471913/background_dochaki_sewo1a.png') center/cover no-repeat;
+            position: relative;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.5) 0%, rgba(5, 5, 5, 0.7) 50%, #050505 100%);
+            z-index: 1;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(5, 5, 5, 0.8) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        /* Slider */
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .slider-track img {
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+
+        /* Glass */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Glow */
+        .glow-orange {
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.15);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 30px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Btn hover */
+        .btn-primary {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: #f97316;
+            background: rgba(249, 115, 22, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Card hover */
+        .product-card {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .product-card:hover {
+            border-color: rgba(249, 115, 22, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-img {
+            transition: transform 0.5s ease;
+        }
+
+        /* Pulse dot */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #f97316;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 4px rgba(249, 115, 22, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 16px rgba(249, 115, 22, 0.8);
+            }
+        }
+
+        /* Slide indicator */
+        .slide-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .slide-dot.active {
+            background: #f97316;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Fade in */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Slider arrows */
+        .slider-arrow {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #fff;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(249, 115, 22, 0.3);
+            border-color: rgba(249, 115, 22, 0.5);
+        }
+
+        /* Mobile bottom nav */
+        .mobile-nav {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Marquee */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-track {
+            animation: marquee 20s linear infinite;
+        }
+
+        /* Noise texture */
+        .noise::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+
+<body class="noise">
+
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-bg min-h-screen flex items-end relative">
+        <div class="relative z-10 w-full px-4 pb-8 md:pb-16">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Heading -->
+                <h1
+                    class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight max-w-3xl mb-4 md:mb-6">
+                    PREMIUM<br>
+                    <span class="text-glow text-orange-500">WINDSHIELDS</span> &<br>
+                    TOURING ACCESSORIES
+                </h1>
+
+                <p class="text-sm md:text-lg font-light text-neutral-400 max-w-lg mb-6 md:mb-10 leading-relaxed">
+                    Some roads don't just take you places, they change you. Equip your ride for the journey ahead.
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 mb-10 md:mb-16">
+                    <button
+                        class="btn-primary px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2">
+                        <span class="iconify text-base" data-icon="mdi:motorbike"></span>
+                        X PULSE 210 WINDSHIELD
+                    </button>
+                    <button
+                        class="btn-primary px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2">
+                        <span class="iconify text-base" data-icon="mdi:motorbike"></span>
+                        HIMALAYAN 450 WINDSHIELD
+                    </button>
+                    <button
+                        class="btn-outline px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
+                        <span class="iconify text-base" data-icon="mdi:shopping-outline"></span>
+                        SHOP BY MOTORCYCLE
+                    </button>
+                </div>
+
+                <!-- Hero Bottom Slider -->
+                <div class="fade-up">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] font-medium uppercase tracking-[0.12em] text-neutral-500">Featured
+                            Rides</span>
+                        <div class="flex items-center gap-2">
+                            <div class="slider-arrow" style="width:28px;height:28px;" onclick="slideHero(-1)">
+                                <span class="iconify text-sm" data-icon="mdi:chevron-left"></span>
+                            </div>
+                            <div class="slider-arrow" style="width:28px;height:28px;" onclick="slideHero(1)">
+                                <span class="iconify text-sm" data-icon="mdi:chevron-right"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl" id="heroSlider">
+                        <div class="slider-track" id="heroTrack">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 1">
+                            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 2">
+                            <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 3">
+                            <img src="https://images.unsplash.com/photo-1622185135505-2d795003994a?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 4">
+                            <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 5">
+                            <img src="https://images.unsplash.com/photo-1525160354320-d8e92641c563?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 6">
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 mt-3 justify-center" id="heroDots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="py-4 border-y border-white/5 overflow-hidden">
+        <div class="flex whitespace-nowrap marquee-track">
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Windshields</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Touring Screens</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Phone Mounts</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">LED Lights</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Luggage Systems</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Hand Guards</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Windshields</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Touring Screens</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Phone Mounts</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">LED Lights</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Luggage Systems</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Hand Guards</span>
+        </div>
+    </div>
+
+    <!-- ===== SHOP BY MOTORCYCLE — SLIDER ===== -->
+    <section class="py-12 md:py-20 px-4 fade-up">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-end justify-between mb-6 md:mb-10">
+                <div>
+                    <span class="text-[10px] font-medium uppercase tracking-[0.15em] text-orange-500 mb-2 block">Browse
+                        Collection</span>
+                    <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Shop by Motorcycle</h2>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="slider-arrow" onclick="slideBikes(-1)">
+                        <span class="iconify" data-icon="mdi:chevron-left"></span>
+                    </div>
+                    <div class="slider-arrow" onclick="slideBikes(1)">
+                        <span class="iconify" data-icon="mdi:chevron-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="overflow-hidden" id="bikeSlider">
+                <div class="slider-track gap-4" id="bikeTrack">
+                    <div
+                        class="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[260px] product-card rounded-2xl overflow-hidden bg-dark-800">
+                        <div class="overflow-hidden h-[130px] sm:h-[150px] md:h-[180px]">
+                            <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=300&fit=crop"
+                                class="card-img w-full h-full object-cover" alt="">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm mb-1">Himalayan 450</h3>
+                            <p class="text-[11px] text-neutral-500">12 Products</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[260px] product-card rounded-2xl overflow-hidden bg-dark-800">
+                        <div class="overflow-hidden h-[130px] sm:h-[150px] md:h-[180px]">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=300&fit=crop"
+                                class="card-img w-full h-full object-cover" alt="">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm mb-1">X Pulse 210</h3>
+                            <p class="text-[11px] text-neutral-500">8 Products</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[260px] product-card rounded-2xl overflow-hidden bg-dark-800">
+                        <div class="overflow-hidden h-[130px] sm:h-[150px] md:h-[180px]">
+                            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=300&fit=crop"
+                                class="card-img w-full h-full object-cover" alt="">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm mb-1">Hunter 350</h3>
+                            <p class="text-[11px] text-neutral-500">15 Products</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[260px] product-card rounded-2xl overflow-hidden bg-dark-800">
+                        <div class="overflow-hidden h-[130px] sm:h-[150px] md:h-[180px]">
+                            <img src="https://images.unsplash.com/photo-1622185135505-2d795003994a?w=400&h=300&fit=crop"
+                                class="card-img w-full h-full object-cover" alt="">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm mb-1">Classic 350</h3>
+                            <p class="text-[11px] text-neutral-500">10 Products</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[260px] product-card rounded-2xl overflow-hidden bg-dark-800">
+                        <div class="overflow-hidden h-[130px] sm:h-[150px] md:h-[180px]">
+                            <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=400&h=300&fit=crop"
+                                class="card-img w-full h-full object-cover" alt="">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm mb-1">Scram 411</h3>
+                            <p class="text-[11px] text-neutral-500">7 Products</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[200px] sm:w-[220px] md:w-[260px] product-card rounded-2xl overflow-hidden bg-dark-800">
+                        <div class="overflow-hidden h-[130px] sm:h-[150px] md:h-[180px]">
+                            <img src="https://images.unsplash.com/photo-1525160354320-d8e92641c563?w=400&h=300&fit=crop"
+                                class="card-img w-full h-full object-cover" alt="">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-sm mb-1">Meteor 350</h3>
+                            <p class="text-[11px] text-neutral-500">9 Products</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-4 justify-center" id="bikeDots"></div>
+        </div>
+    </section>
+
+    <!-- ===== BEST SELLERS — PRODUCT GRID ===== -->
+    <section class="py-12 md:py-20 px-4 fade-up">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <span class="text-[10px] font-medium uppercase tracking-[0.15em] text-orange-500 mb-2 block">Most
+                    Popular</span>
+                <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-3">Best Sellers</h2>
+                <p class="text-sm text-neutral-500 max-w-md mx-auto">Trusted by thousands of riders across the country.
+                    Built tough for Indian roads.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+                <!-- Product 1 -->
+                <div class="product-card rounded-2xl overflow-hidden bg-dark-800">
+                    <div class="relative overflow-hidden h-[140px] sm:h-[180px] md:h-[220px]">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=500&h=400&fit=crop"
+                            class="card-img w-full h-full object-cover" alt="">
+                        <span
+                            class="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-wider bg-orange-500 px-2.5 py-1 rounded-full">Best
+                            Seller</span>
+                    </div>
+                    <div class="p-3 md:p-5">
+                        <p class="text-[10px] text-orange-400 font-medium mb-1">HIMALAYAN 450</p>
+                        <h3 class="font-semibold text-sm md:text-base mb-2 leading-tight">Tall Touring Windshield</h3>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-lg font-bold text-white">₹2,499</span>
+                                <span class="text-xs text-neutral-600 line-through ml-1.5">₹3,200</span>
+                            </div>
+                            <button
+                                class="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500/20 hover:border-orange-500/40 transition-all">
+                                <span class="iconify text-sm" data-icon="mdi:cart-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card rounded-2xl overflow-hidden bg-dark-800">
+                    <div class="relative overflow-hidden h-[140px] sm:h-[180px] md:h-[220px]">
+                        <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=500&h=400&fit=crop"
+                            class="card-img w-full h-full object-cover" alt="">
+                        <span
+                            class="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-wider bg-green-500/90 text-white px-2.5 py-1 rounded-full">New</span>
+                    </div>
+                    <div class="p-3 md:p-5">
+                        <p class="text-[10px] text-orange-400 font-medium mb-1">X PULSE 210</p>
+                        <h3 class="font-semibold text-sm md:text-base mb-2 leading-tight">Adventure Windshield</h3>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-lg font-bold text-white">₹1,899</span>
+                                <span class="text-xs text-neutral-600 line-through ml-1.5">₹2,400</span>
+                            </div>
+                            <button
+                                class="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500/20 hover:border-orange-500/40 transition-all">
+                                <span class="iconify text-sm" data-icon="mdi:cart-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card rounded-2xl overflow-hidden bg-dark-800 col-span-2 md:col-span-1">
+                    <div class="relative overflow-hidden h-[140px] sm:h-[180px] md:h-[220px]">
+                        <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=500&h=400&fit=crop"
+                            class="card-img w-full h-full object-cover" alt="">
+                    </div>
+                    <div class="p-3 md:p-5">
+                        <p class="text-[10px] text-orange-400 font-medium mb-1">UNIVERSAL</p>
+                        <h3 class="font-semibold text-sm md:text-base mb-2 leading-tight">Phone Mount Pro</h3>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-lg font-bold text-white">₹999</span>
+                                <span class="text-xs text-neutral-600 line-through ml-1.5">₹1,500</span>
+                            </div>
+                            <button
+                                class="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-500/20 hover:border-orange-500/40 transition-all">
+                                <span class="iconify text-sm" data-icon="mdi:cart-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FULL WIDTH IMAGE SLIDER (filling empty space) ===== -->
+    <section class="py-8 md:py-12 px-4 fade-up">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-[10px] font-medium uppercase tracking-[0.12em] text-neutral-500">From the
+                    Community</span>
+                <div class="flex items-center gap-2">
+                    <div class="slider-arrow" style="width:28px;height:28px;" onclick="slideCommunity(-1)">
+                        <span class="iconify text-sm" data-icon="mdi:chevron-left"></span>
+                    </div>
+                    <div class="slider-arrow" style="width:28px;height:28px;" onclick="slideCommunity(1)">
+                        <span class="iconify text-sm" data-icon="mdi:chevron-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-2xl" id="communitySlider">
+                <div class="slider-track" id="communityTrack">
+                    <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&h=400&fit=crop"
+                        class="w-[85vw] sm:w-[60vw] md:w-[48vw] h-[200px] sm:h-[260px] md:h-[320px] rounded-2xl object-cover mr-4"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?w=800&h=400&fit=crop"
+                        class="w-[85vw] sm:w-[60vw] md:w-[48vw] h-[200px] sm:h-[260px] md:h-[320px] rounded-2xl object-cover mr-4"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=400&fit=crop"
+                        class="w-[85vw] sm:w-[60vw] md:w-[48vw] h-[200px] sm:h-[260px] md:h-[320px] rounded-2xl object-cover mr-4"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?w=800&h=400&fit=crop"
+                        class="w-[85vw] sm:w-[60vw] md:w-[48vw] h-[200px] sm:h-[260px] md:h-[320px] rounded-2xl object-cover mr-4"
+                        alt="">
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-3 justify-center" id="communityDots"></div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="py-12 md:py-20 px-4 fade-up">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <span class="text-[10px] font-medium uppercase tracking-[0.15em] text-orange-500 mb-2 block">Why
+                    RideShield</span>
+                <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Built for Riders, By Riders</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div
+                    class="glass rounded-2xl p-5 md:p-6 text-center hover:border-orange-500/20 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="iconify text-2xl text-orange-500" data-icon="mdi:shield-check-outline"></span>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1.5">Impact Resistant</h3>
+                    <p class="text-[11px] text-neutral-500 leading-relaxed">4mm polycarbonate built to handle highway
+                        speeds</p>
+                </div>
+                <div
+                    class="glass rounded-2xl p-5 md:p-6 text-center hover:border-orange-500/20 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="iconify text-2xl text-orange-500" data-icon="mdi:wrench-outline"></span>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1.5">Bolt-On Fit</h3>
+                    <p class="text-[11px] text-neutral-500 leading-relaxed">No drilling needed. 15 min install</p>
+                </div>
+                <div
+                    class="glass rounded-2xl p-5 md:p-6 text-center hover:border-orange-500/20 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="iconify text-2xl text-orange-500" data-icon="mdi:truck-delivery-outline"></span>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1.5">Pan India Delivery</h3>
+                    <p class="text-[11px] text-neutral-500 leading-relaxed">Free shipping on orders above ₹999</p>
+                </div>
+                <div
+                    class="glass rounded-2xl p-5 md:p-6 text-center hover:border-orange-500/20 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="iconify text-2xl text-orange-500" data-icon="mdi:refresh"></span>
+                    </div>
+                    <h3 class="font-semibold text-sm mb-1.5">Easy Returns</h3>
+                    <p class="text-[11px] text-neutral-500 leading-relaxed">7-day no questions asked return policy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INSTALLATION SHOWCASE SLIDER ===== -->
+    <section class="py-8 md:py-16 px-4 fade-up">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-end justify-between mb-4 md:mb-8">
+                <div>
+                    <span
+                        class="text-[10px] font-medium uppercase tracking-[0.15em] text-orange-500 mb-2 block">Installation
+                        Gallery</span>
+                    <h2 class="text-xl md:text-3xl font-bold tracking-tight">See It In Action</h2>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="slider-arrow" onclick="slideInstall(-1)">
+                        <span class="iconify" data-icon="mdi:chevron-left"></span>
+                    </div>
+                    <div class="slider-arrow" onclick="slideInstall(1)">
+                        <span class="iconify" data-icon="mdi:chevron-right"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-2xl" id="installSlider">
+                <div class="slider-track gap-3" id="installTrack">
+                    <div
+                        class="flex-shrink-0 w-[65vw] sm:w-[40vw] md:w-[30vw] rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=500&h=600&fit=crop"
+                            class="w-full h-[220px] sm:h-[280px] md:h-[340px] object-cover group-hover:scale-105 transition-transform duration-500"
+                            alt="">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <p class="text-[10px] text-orange-400 font-medium">Himalayan 450</p>
+                            <p class="text-sm font-semibold">Tall Screen Install</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[65vw] sm:w-[40vw] md:w-[30vw] rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?w=500&h=600&fit=crop"
+                            class="w-full h-[220px] sm:h-[280px] md:h-[340px] object-cover group-hover:scale-105 transition-transform duration-500"
+                            alt="">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <p class="text-[10px] text-orange-400 font-medium">X Pulse 210</p>
+                            <p class="text-sm font-semibold">Adventure Fit</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[65vw] sm:w-[40vw] md:w-[30vw] rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&h=600&fit=crop"
+                            class="w-full h-[220px] sm:h-[280px] md:h-[340px] object-cover group-hover:scale-105 transition-transform duration-500"
+                            alt="">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <p class="text-[10px] text-orange-400 font-medium">Hunter 350</p>
+                            <p class="text-sm font-semibold">Compact Shield</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[65vw] sm:w-[40vw] md:w-[30vw] rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6?w=500&h=600&fit=crop"
+                            class="w-full h-[220px] sm:h-[280px] md:h-[340px] object-cover group-hover:scale-105 transition-transform duration-500"
+                            alt="">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <p class="text-[10px] text-orange-400 font-medium">Classic 350</p>
+                            <p class="text-sm font-semibold">Retro Windshield</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[65vw] sm:w-[40vw] md:w-[30vw] rounded-2xl overflow-hidden relative group">
+                        <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=500&h=600&fit=crop"
+                            class="w-full h-[220px] sm:h-[280px] md:h-[340px] object-cover group-hover:scale-105 transition-transform duration-500"
+                            alt="">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <p class="text-[10px] text-orange-400 font-medium">Scram 411</p>
+                            <p class="text-sm font-semibold">Off-Road Shield</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-3 justify-center" id="installDots"></div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="py-12 md:py-20 px-4 fade-up">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-8 md:mb-12">
+                <span
+                    class="text-[10px] font-medium uppercase tracking-[0.15em] text-orange-500 mb-2 block">Reviews</span>
+                <h2 class="text-2xl md:text-4xl font-bold tracking-tight">Riders Love It</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5">
+                <div class="glass rounded-2xl p-5 md:p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                    </div>
+                    <p class="text-sm text-neutral-300 leading-relaxed mb-4">"Fitted this on my Himalayan 450 before a
+                        Ladakh trip. Zero wind fatigue even at 120km/h. Absolute game changer."</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-9 h-9 rounded-full bg-gradient-to-tr from-orange-500 to-yellow-300 flex items-center justify-center text-xs font-bold text-dark-900">
+                            RK</div>
+                        <div>
+                            <p class="text-sm font-medium">Rahul K.</p>
+                            <p class="text-[10px] text-neutral-500">Himalayan 450 Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-5 md:p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star-half-full"></span>
+                    </div>
+                    <p class="text-sm text-neutral-300 leading-relaxed mb-4">"Perfect fit for X Pulse 210. Installation
+                        took barely 10 minutes. Quality of the acrylic is top notch."</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-cyan-300 flex items-center justify-center text-xs font-bold text-dark-900">
+                            AS</div>
+                        <div>
+                            <p class="text-sm font-medium">Arjun S.</p>
+                            <p class="text-[10px] text-neutral-500">X Pulse 210 Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass rounded-2xl p-5 md:p-6">
+                    <div class="flex items-center gap-1 mb-3">
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                        <span class="iconify text-orange-500 text-sm" data-icon="mdi:star"></span>
+                    </div>
+                    <p class="text-sm text-neutral-300 leading-relaxed mb-4">"Third product from RideShield. Phone mount
+                        + windshield + hand guards. All excellent. Highly recommend."</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-9 h-9 rounded-full bg-gradient-to-tr from-green-500 to-emerald-300 flex items-center justify-center text-xs font-bold text-dark-900">
+                            VP</div>
+                        <div>
+                            <p class="text-sm font-medium">Vikram P.</p>
+                            <p class="text-[10px] text-neutral-500">Hunter 350 Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="py-12 md:py-20 px-4 fade-up">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="glass-strong rounded-3xl p-8 md:p-16 relative overflow-hidden glow-orange">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl"></div>
+                <div class="relative z-10">
+                    <span class="iconify text-4xl md:text-5xl text-orange-500 mb-4 block mx-auto"
+                        data-icon="mdi:motorbike-electric"></span>
+                    <h2 class="text-2xl md:text-4xl font-bold tracking-tight mb-3">Ready to Ride Shielded?</h2>
+                    <p class="text-sm md:text-base text-neutral-400 max-w-md mx-auto mb-8">Join 10,000+ riders who trust
+                        RideShield for their touring needs. Free shipping on first order.</p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <button
+                            class="btn-primary px-8 py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2">
+                            <span class="iconify" data-icon="mdi:shopping-outline"></span>
+                            SHOP NOW
+                        </button>
+                        <button
+                            class="btn-outline px-8 py-3.5 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
+                            <span class="iconify" data-icon="mdi:whatsapp"></span>
+                            WHATSAPP US
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-white/5 py-10 md:py-14 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                            <span class="iconify text-white text-sm" data-icon="mdi:shield-outline"></span>
+                        </div>
+                        <span class="font-bold text-sm">RIDE<span class="text-orange-500">SHIELD</span></span>
+                    </div>
+                    <p class="text-xs text-neutral-500 leading-relaxed mb-4">Premium windshields & touring accessories
+                        for Indian motorcycles.</p>
+                    <div class="flex items-center gap-3">
+                        <a href="#"
+                            class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-orange-500/20 transition-colors">
+                            <span class="iconify text-sm text-neutral-400" data-icon="mdi:instagram"></span>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-orange-500/20 transition-colors">
+                            <span class="iconify text-sm text-neutral-400" data-icon="mdi:youtube"></span>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-orange-500/20 transition-colors">
+                            <span class="iconify text-sm text-neutral-400" data-icon="mdi:facebook"></span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-4">Shop</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#"
+                                class="text-xs text-neutral-500 hover:text-white transition-colors">Windshields</a></li>
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">Phone
+                                Mounts</a></li>
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">LED
+                                Lights</a></li>
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">Hand
+                                Guards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-4">Support</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">Contact
+                                Us</a></li>
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">Shipping
+                                Info</a></li>
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">Returns</a>
+                        </li>
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-4">Legal</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">Privacy
+                                Policy</a></li>
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">Terms of
+                                Service</a></li>
+                        <li><a href="#" class="text-xs text-neutral-500 hover:text-white transition-colors">Refund
+                                Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+                <p class="text-[11px] text-neutral-600">© 2025 RideShield. All rights reserved.</p>
+                <p class="text-[11px] text-neutral-600">Made with <span class="text-orange-500">♥</span> for riders</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Nav -->
+    <div class="mobile-nav fixed bottom-0 left-0 right-0 z-50 md:hidden px-2 py-2">
+        <div class="flex items-center justify-around">
+            <a href="#" class="flex flex-col items-center gap-0.5 py-1.5 px-3">
+                <span class="iconify text-lg text-orange-500" data-icon="mdi:home"></span>
+                <span class="text-[9px] font-medium text-orange-500">Home</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-0.5 py-1.5 px-3">
+                <span class="iconify text-lg text-neutral-500" data-icon="mdi:magnify"></span>
+                <span class="text-[9px] font-medium text-neutral-500">Search</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-0.5 py-1.5 px-3 relative">
+                <span class="iconify text-lg text-neutral-500" data-icon="mdi:cart-outline"></span>
+                <span
+                    class="absolute -top-0.5 right-1 w-3.5 h-3.5 bg-orange-500 rounded-full text-[8px] font-bold flex items-center justify-center">2</span>
+                <span class="text-[9px] font-medium text-neutral-500">Cart</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-0.5 py-1.5 px-3">
+                <span class="iconify text-lg text-neutral-500" data-icon="mdi:account-outline"></span>
+                <span class="text-[9px] font-medium text-neutral-500">Account</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom spacer for mobile nav -->
+    <div class="h-16 md:hidden"></div>
+
+    <script>
+        // ===== SLIDER ENGINE =====
+        function createSlider(config) {
+            const track = document.getElementById(config.trackId);
+            const container = document.getElementById(config.sliderId);
+            const dotsContainer = document.getElementById(config.dotsId);
+            if (!track || !container) return null;
+
+            const items = track.children;
+            const totalItems = items.length;
+            let currentIndex = 0;
+
+            // Calculate visible items based on screen width
+            function getVisibleCount() {
+                if (config.forceSingle) return 1;
+                const w = window.innerWidth;
+                if (w >= 768) return config.desktopVisible || 3;
+                if (w >= 640) return config.tabletVisible || 2;
+                return config.mobileVisible || 1;
+            }
+
+            function getMaxIndex() {
+                return Math.max(0, totalItems - getVisibleCount());
+            }
+
+            // Create dots
+            if (dotsContainer) {
+                dotsContainer.innerHTML = '';
+                const maxI = getMaxIndex();
+                for (let i = 0; i <= maxI; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+                    dot.onclick = () => goTo(i);
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateDots() {
+                if (!dotsContainer) return;
+                const dots = dotsContainer.children;
+                const maxI = getMaxIndex();
+                // Rebuild dots if count changed
+                if (dots.length !== maxI + 1) {
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i <= maxI; i++) {
+                        const dot = document.createElement('div');
+                        dot.className = 'slide-dot' + (i === currentIndex ? ' active' : '');
+                        dot.onclick = () => goTo(i);
+                        dotsContainer.appendChild(dot);
+                    }
+                } else {
+                    for (let i = 0; i < dots.length; i++) {
+                        dots[i].className = 'slide-dot' + (i === currentIndex ? ' active' : '');
+                    }
+                }
+            }
+
+            function getItemWidth() {
+                return items[0].offsetWidth + (config.gap || 12);
+            }
+
+            function goTo(index) {
+                const maxI = getMaxIndex();
+                currentIndex = Math.max(0, Math.min(index, maxI));
+                track.style.transform = `translateX(-${currentIndex * getItemWidth()}px)`;
+                updateDots();
+            }
+
+            function next() { goTo(currentIndex + 1); }
+            function prev() { goTo(currentIndex - 1); }
+
+            // Touch support
+            let startX = 0, isDragging = false;
+            container.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+            container.addEventListener('touchend', e => {
+                if (!isDragging) return;
+                isDragging = false;
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) {
+                    diff > 0 ? next() : prev();
+                }
+            }, { passive: true });
+
+            // Resize handler
+            window.addEventListener('resize', () => {
+                currentIndex = Math.min(currentIndex, getMaxIndex());
+                goTo(currentIndex);
+            });
+
+            return { next, prev, goTo };
+        }
+
+        // Hero slider
+        const heroSlider = createSlider({
+            sliderId: 'heroSlider', trackId: 'heroTrack', dotsId: 'heroDots',
+            mobileVisible: 1.2, tabletVisible: 2, desktopVisible: 3, gap: 12
+        });
+
+        // Bike slider
+        const bikeSlider = createSlider({
+            sliderId: 'bikeSlider', trackId: 'bikeTrack', dotsId: 'bikeDots',
+            mobileVisible: 1.15, tabletVisible: 2, desktopVisible: 3.5, gap: 16
+        });
+
+        // Community slider
+        const communitySlider = createSlider({
+            sliderId: 'communitySlider', trackId: 'communityTrack', dotsId: 'communityDots',
+            mobileVisible: 1.05, tabletVisible: 1.5, desktopVisible: 2, gap: 16, forceSingle: false
+        });
+
+        // Install slider
+        const installSlider = createSlider({
+            sliderId: 'installSlider', trackId: 'installTrack', dotsId: 'installDots',
+            mobileVisible: 1.2, tabletVisible: 2, desktopVisible: 3, gap: 12
+        });
+
+        function slideHero(dir) { heroSlider && heroSlider[dir > 0 ? 'next' : 'prev'](); }
+        function slideBikes(dir) { bikeSlider && bikeSlider[dir > 0 ? 'next' : 'prev'](); }
+        function slideCommunity(dir) { communitySlider && communitySlider[dir > 0 ? 'next' : 'prev'](); }
+        function slideInstall(dir) { installSlider && installSlider[dir > 0 ? 'next' : 'prev'](); }
+
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('opacity-0');
+            menu.classList.toggle('pointer-events-none');
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Auto-slide for hero
+        let heroAutoSlide = setInterval(() => slideHero(1), 4000);
+        document.getElementById('heroSlider')?.addEventListener('touchstart', () => clearInterval(heroAutoSlide), { passive: true });
+    </script>
+</body>
+
+</html>
