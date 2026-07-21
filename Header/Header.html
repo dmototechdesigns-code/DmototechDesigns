@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMotoTech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+    <!-- HEADER NAVBAR -->
+    <header class="hm-head-moto-header">
+        <div class="hm-head-moto-header-container">
+            <button class="hm-mobile-menu-toggle" onclick="toggleMobileNav()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="hm-head-moto-logo-area">
+                <a href="../index.html">
+                    <img src="https://res.cloudinary.com/dhrqbdrkh/image/upload/v1782471800/dmotottech_awtowl.png"
+                        class="hm-head-moto-brand-logo" alt="DMotoTech">
+                </a>
+            </div>
+
+            <nav class="hm-head-moto-navbar">
+                <ul class="hm-head-moto-nav-list">
+                    <li><a href="../index.html" class="web-link">Home</a></li>
+                    <li><a href="../Shop/Shop.html" class="web-link">Shop</a></li>
+                    <li><a href="#" class="web-link">Blog</a></li>
+                    <li><a href="../About/About_page.html" class="web-link">About Us</a></li>
+                    <li><a href="#" class="web-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hm-head-moto-header-utils">
+                <div id="auth-buttons-group"></div>
+                <a href="javascript:void(0)" class="hm-head-moto-utility-link" id="headerCartIcon"
+                    onclick="toggleCartDrawer()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="headerCartCount" class="header-cart-badge" style="display:none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV OVERLAY & PANEL -->
+    <div class="hm-mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()"></div>
+    <div class="hm-mobile-nav-panel" id="mobileNavPanel">
+        <div class="hm-mobile-nav-header">
+            <img src="https://res.cloudinary.com/dhrqbdrkh/image/upload/v1782471800/dmotottech_awtowl.png"
+                class="hm-mobile-nav-brand-img" alt="DMotoTech">
+            <button class="hm-mobile-nav-close" onclick="closeMobileNav()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <ul class="hm-mobile-nav-links">
+            <li><a href="../index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="../About/About_page.html"><i class="fa-solid fa-users"></i>About</a></li>
+            <li><a href="../Shop/Shop.html"><i class="fa-solid fa-store"></i>Shop</a></li>
+            <li><a href="./blog.html"><i class="fa-solid fa-newspaper"></i>Blog</a></li>
+            <li><a href="./contact.html"><i class="fa-solid fa-envelope"></i>Contact</a></li>
+        </ul>
+        <div class="mobile-auth-wrapper" id="mobileAuthContainer"></div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
+    <div class="cart-drawer-panel" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <div class="cart-header-left">
+                <h3 class="cart-drawer-title">Your Cart</h3>
+                <span id="cartDrawerSubCount" class="cart-drawer-subcount">0 Items</span>
+            </div>
+            <button class="cart-drawer-close" onclick="toggleCartDrawer()">✕</button>
+        </div>
+        <div class="cart-drawer-content" id="cartDrawerContainer"></div>
+        <div class="cart-drawer-footer" id="cartDrawerFooter" style="display:none;">
+            <div class="cart-total-bar">
+                <span class="cart-total-label">Subtotal Amount:</span>
+                <span id="cartDrawerTotal" class="cart-total-value">₹0</span>
+            </div>
+            <p class="cart-tax-notice">Shipping & taxes calculated at checkout.</p>
+            <button class="checkout-razorpay-btn" onclick="triggerRazorpayCheckout()">
+                <i class="fa-solid fa-lock" style="margin-right:6px;"></i>Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

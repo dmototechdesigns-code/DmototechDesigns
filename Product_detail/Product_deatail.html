@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - DMotoTech By Dochaki</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="./product_detail.css" rel="stylesheet">
+    <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../footer.css">
+
+    <!-- 1. Sabse pehle Supabase Engine CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2. Dusre number par aapki Config file -->
+    <script src="../Config/Supabse_config.js"></script>
+
+    <!-- 3. Teesre number par UI Rendering File -->
+    <script src="../Js_File/productView.js"></script>
+
+    <!-- 4. Sabse last mein aapka main App Logic -->
+    <script src="../Js_File/productApp.js" defer></script>
+</head>
+
+<body>
+
+    <div id="global-header"></div>
+
+    <div class="dmt-detail-container">
+        <!-- Breadcrumb Area -->
+        <div class="dmt-breadcrumb">
+            <a href="../index.html">Home</a> »
+            <a href="../Shop/Shop.html">Shop</a> »
+            <span class="dmt-js-crumbs">Product Details</span>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="dmt-product-hero">
+            <div class="dmt-product-gallery">
+                <img src="" alt="Product Image" class="dmt-js-img">
+            </div>
+
+            <div class="dmt-product-essential">
+                <h1 class="dmt-product-title dmt-js-title">Loading Product Specification...</h1>
+
+                <div class="dmt-price-row">
+                    <span class="dmt-price-main dmt-js-price">₹0</span>
+                    <span class="dmt-price-tax">(incl. Tax)</span>
+                </div>
+
+                <!-- Short Description (description_1) - Product ke baju me -->
+                <p class="dmt-short-description dmt-js-short-desc"></p>
+
+                <!-- Key Features 1 - Product ke baju me (Dynamic List) -->
+                <div class="dmt-hero-features-wrapper" style="margin-bottom: 25px;">
+                    <h3>Key Features</h3>
+                    <ul class="dmt-js-hero-features"
+                        style="padding-left: 20px; font-size: 14px; color: #4a4a4a; line-height: 2; margin: 0; list-style:square;">
+                        <!-- Dynamically filled with keyfeatures_1 -->
+                    </ul>
+                </div>
+
+                <!-- Configure Box -->
+                <div class="dmt-configure-box">
+                    <!-- Bolt Size Option Row (Bolt size na hone par js se ye div poora hide ho jayega) -->
+                    <div class="dmt-option-row dmt-js-bolt-row">
+                        <span class="dmt-option-label">Bolt Size</span>
+                        <select class="dmt-selector-dropdown dmt-js-bolt-select">
+                            <option value="">Choose an option</option>
+                        </select>
+                    </div>
+
+                    <div class="dmt-cart-action-row">
+                        <input type="number" class="dmt-qty-input" value="1" min="1">
+                        <button type="button" class="dmt-btn-add-cart" onclick="addProductToCart()">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="dmt-meta-block">
+                    <div>SKU: <strong>N/A</strong></div>
+                    <div>Categories: <strong class="dmt-js-categories">Loading...</strong></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation & Panels -->
+        <div class="dmt-tabs-wrapper">
+            <div class="dmt-tabs-header">
+                <button class="dmt-tab-trigger dmt-js-tab-btn active"
+                    onclick="switchTab(event, 'dmt-panel-description')">Description</button>
+                <button class="dmt-tab-trigger dmt-js-tab-btn"
+                    onclick="switchTab(event, 'dmt-panel-additional')">Additional information</button>
+                <button class="dmt-tab-trigger dmt-js-tab-btn dmt-js-reviews-count-btn"
+                    onclick="switchTab(event, 'dmt-panel-reviews')">Reviews (0)</button>
+            </div>
+
+            <!-- Description Tab Panel -->
+            <div id="dmt-panel-description" class="dmt-tab-content-panel active">
+                <div class="dmt-panel-html-content">
+                    <h2 class="dmt-js-inner-title">Product Description Setup</h2>
+
+                    <!-- Dynamic Size Alerts (Sizes ke count ke hisab se automatic line) -->
+                    <div class="dmt-callout-box dmt-js-callout">
+                        <!-- Loaded dynamically based on array count -->
+                    </div>
+
+                    <!-- Long Description Segment (description_2) - Niche description ke andar -->
+                    <div class="dmt-long-desc-wrapper dmt-js-long-desc"
+                        style="line-height: 1.6; margin-bottom: 25px; color: #333;">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <!-- Key Features 2 - Niche Description ke andar -->
+                    <h2 class="dmt-js-features-heading" style="font-size: 20px; margin-top: 30px; margin-bottom: 15px;">
+                        Key Features</h2>
+                    <ul class="dmt-features-list dmt-js-features-list">
+                        <!-- Dynamically filled with keyfeatures_2 -->
+                    </ul>
+
+                    <p class="dmt-promo-footer" style="margin-top: 40px;">For bike modification or customization visit
+                        to Dochaki Designs or contact us.</p>
+                </div>
+            </div>
+
+            <!-- Additional Info Tab Panel -->
+            <div id="dmt-panel-additional" class="dmt-tab-content-panel">
+                <table class="dmt-info-table">
+                    <tr>
+                        <td class="dmt-label-td">Weight</td>
+                        <td class="dmt-value-td dmt-js-table-weight">N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="dmt-label-td">Dimensions</td>
+                        <td class="dmt-value-td dmt-js-table-dimensions">N/A</td>
+                    </tr>
+                    <!-- Additional Info Table me Bolt size row (Hide/Show support ke sath) -->
+                    <tr class="dmt-js-table-bolt-row">
+                        <td class="dmt-label-td">Bolt Size</td>
+                        <td class="dmt-value-td dmt-js-table-bolt-sizes">N/A</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Reviews Tab Panel -->
+            <div id="dmt-panel-reviews" class="dmt-tab-content-panel">
+                <div class="dmt-review-box">
+                    <p class="dmt-review-title dmt-js-review-header">There are no reviews yet.</p>
+
+                    <!-- Rendered Reviews Wrapper -->
+                    <div class="dmt-rendered-reviews dmt-js-reviews-container"></div>
+
+                    <!-- Submit New Review Form -->
+                    <div class="dmt-review-form-card">
+                        <h4 style="margin-bottom: 15px; font-size: 15px;">Be the first to review this product</h4>
+
+                        <div class="dmt-form-group">
+                            <label>Your Name *</label>
+                            <input type="text" class="dmt-form-control dmt-js-input-name" required
+                                placeholder="Enter your name">
+                        </div>
+
+                        <div class="dmt-form-group">
+                            <label>Your Rating *</label>
+                            <select class="dmt-selector-dropdown dmt-js-input-rating" style="width: 100%;">
+                                <option value="">Rate...</option>
+                                <option value="5">5 - Perfect</option>
+                                <option value="4">4 - Good</option>
+                                <option value="3">3 - Average</option>
+                                <option value="2">2 - Bad</option>
+                                <option value="1">1 - Terrible</option>
+                            </select>
+                        </div>
+                        <div class="dmt-form-group">
+                            <label>Your Review *</label>
+                            <textarea class="dmt-form-control dmt-js-input-comment" rows="5"
+                                placeholder="Write your review here..."></textarea>
+                        </div>
+                        <button class="dmt-btn-submit" onclick="submitReview()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="global-footer"></div>
+
+    <script>
+        // Dynamically load header.js script
+        function loadHeaderScript() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = '../Header/header.js';
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        async function loadHeader() {
+            try {
+                // 1. First load header.js script to make functions available
+                if (!window.toggleCartDrawer) {
+                    await loadHeaderScript();
+                    // Wait for script execution
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                }
+
+                // 2. Fetch and inject header HTML
+                const response = await fetch("../Header/header.html");
+                const data = await response.text();
+                document.getElementById("global-header").innerHTML = data;
+
+                // 3. Wait for DOM to settle
+                await new Promise(resolve => setTimeout(resolve, 200));
+
+                // 4. Initialize Supabase if available
+                if (typeof initSupabaseAuth === "function") {
+                    try {
+                        await initSupabaseAuth();
+                    } catch (e) {
+                        console.warn("Supabase auth init skipped:", e.message);
+                    }
+                }
+
+                // 4. Force sync cart display - retry if not available
+                let retries = 0;
+                while (!window.forceSyncHomeCart && retries < 5) {
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                    retries++;
+                }
+                if (typeof forceSyncHomeCart === "function") {
+                    forceSyncHomeCart();
+                }
+
+                // Ensure cart icon click handler is properly bound
+                const cartIcon = document.getElementById('headerCartIcon');
+                if (cartIcon && typeof toggleCartDrawer === "function") {
+                    cartIcon.onclick = (e) => {
+                        e.preventDefault();
+                        toggleCartDrawer();
+                    };
+                }
+
+                const navList = document.querySelector('.hm-head-moto-nav-list');
+
+                if (!navList) {
+                    console.warn("Warning: .hm-head-moto-nav-list class not found in header.html");
+                    return;
+                }
+
+                const menuItems = navList.querySelectorAll('li');
+
+                menuItems.forEach(li => {
+                    li.classList.remove('active-li');
+                    const link = li.querySelector('a');
+                    if (link) link.classList.remove('active');
+                });
+
+                const currentPath = window.location.pathname.replace(/\\/g, "/").toLowerCase();
+                const currentFilename = currentPath.split('/').pop();
+
+                menuItems.forEach(li => {
+                    const link = li.querySelector('a');
+                    if (!link) return;
+
+                    const linkHref = link.getAttribute('href').replace(/\\/g, '/').toLowerCase();
+
+                    if (currentFilename.includes('product_deatail.html') || currentFilename.includes('product_detail.html')) {
+                        if (linkHref.includes('shop.html')) {
+                            li.classList.add('active-li');
+                            link.classList.add('active');
+                        }
+                    } else {
+                        const linkFilename = linkHref.split('/').pop();
+                        if (linkFilename === currentFilename) {
+                            li.classList.add('active-li');
+                            link.classList.add('active');
+                        }
+                    }
+                });
+
+            } catch (err) {
+                console.error("Header Load Error:", err);
+            }
+        }
+
+        async function loadFooter() {
+            try {
+                const response = await fetch("../Footer/footer.html");
+                const data = await response.text();
+                document.getElementById("global-footer").innerHTML = data;
+            } catch (err) {
+                console.error("Footer Load Error:", err);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            await loadHeader();
+            await loadFooter();
+
+            await new Promise(resolve => setTimeout(resolve, 100));
+            if (typeof window.toggleCartDrawer !== "function") {
+                console.error("toggleCartDrawer not available!");
+            }
+            if (typeof window.forceSyncHomeCart !== "function") {
+                console.error("forceSyncHomeCart not available!");
+            }
+
+            window.addEventListener('storage', (e) => {
+                if (!e.key || e.key === 'dochaki_cart') {
+                    if (typeof forceSyncHomeCart === "function") {
+                        forceSyncHomeCart();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

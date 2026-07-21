@@ -4,11 +4,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Header/Header.css">
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { inter: ['Inter', 'sans-serif'] },
+                    colors: {
+                        dark: { 900: '#050505', 800: '#0A0A0A', 700: '#111111', 600: '#1a1a1a' }
+                    }
+                }
+            }
+        }
+    </script>
+
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./Js_files/Header.js" defer></script>
+    <script src="./Js_files/script.js" defer></script>
+
 </head>
 
-<body>
-    Hello Dmototech
+<body class="noise">
+
+    <div id="global-header"></div>
+
+    <!-- Home Page Starts here  -->
+
+    <section class="hero-bg min-h-screen flex items-end relative">
+        <div class="relative z-10 w-full px-4 pb-8 md:pb-16">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Heading -->
+                <h1
+                    class="text-2xl sm:text-3xl md:text-5xl lg:text-5xl font-bold leading-[0.95] tracking-tight max-w-3xl mb-4 md:mb-6">
+                    PREMIUM<br>
+                    <span class="text-glow text-orange-500">WINDSHIELDS</span> &<br>
+                    TOURING ACCESSORIES
+                </h1>
+
+                <p class="text-sm md:text-lg font-light text-neutral-400 max-w-lg mb-6 md:mb-10 leading-relaxed">
+                    Some roads don't just take you places, they change you. Equip your ride for the journey ahead.
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3 mb-10 md:mb-16">
+                    <button
+                        class="btn-primary px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2">
+                        <span class="iconify text-base" data-icon="mdi:motorbike"></span>
+                        X PULSE 210 WINDSHIELD
+                    </button>
+                    <button
+                        class="btn-primary px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2">
+                        <span class="iconify text-base" data-icon="mdi:motorbike"></span>
+                        HIMALAYAN 450 WINDSHIELD
+                    </button>
+                    <button
+                        class="btn-outline px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm font-medium flex items-center justify-center gap-2">
+                        <span class="iconify text-base" data-icon="mdi:shopping-outline"></span>
+                        SHOP BY MOTORCYCLE
+                    </button>
+                </div>
+
+                <!-- Hero Bottom Slider -->
+                <div class="fade-up">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[10px] font-medium uppercase tracking-[0.12em] text-neutral-500">Featured
+                            Rides</span>
+                        <div class="flex items-center gap-2">
+                            <div class="slider-arrow" style="width:28px;height:28px;" onclick="slideHero(-1)">
+                                <span class="iconify text-sm" data-icon="mdi:chevron-left"></span>
+                            </div>
+                            <div class="slider-arrow" style="width:28px;height:28px;" onclick="slideHero(1)">
+                                <span class="iconify text-sm" data-icon="mdi:chevron-right"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-hidden rounded-2xl" id="heroSlider">
+                        <div class="slider-track" id="heroTrack">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 1">
+                            <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 2">
+                            <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 3">
+                            <img src="https://images.unsplash.com/photo-1622185135505-2d795003994a?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 4">
+                            <img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 5">
+                            <img src="https://images.unsplash.com/photo-1525160354320-d8e92641c563?w=400&h=250&fit=crop"
+                                class="w-[260px] sm:w-[300px] md:w-[340px] h-[140px] sm:h-[170px] md:h-[190px] rounded-2xl object-cover mr-3"
+                                alt="Ride 6">
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1.5 mt-3 justify-center" id="heroDots"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="py-4 border-y border-white/5 overflow-hidden">
+        <div class="flex whitespace-nowrap marquee-track">
+            <!-- Marquee content remains same -->
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Windshields</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Touring Screens</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Phone Mounts</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">LED Lights</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Luggage Systems</span>
+            <span class="text-orange-500/40 mx-2">✦</span>
+            <span class="text-[11px] uppercase tracking-[0.2em] text-neutral-600 mx-8">Hand Guards</span>
+        </div>
+    </div>
+
+
+
+    <script>
+        async function loadHeader() {
+            try {
+                const response = await fetch('./Header/Header.html');
+                if (!response.ok) throw new Error('Header.html not found: ' + response.status);
+                const data = await response.text();
+                document.getElementById('global-header').innerHTML = data;
+
+                if (typeof initSupabase === "function") await initSupabase();
+                if (typeof forceSyncHomeCart === "function") forceSyncHomeCart();
+
+                let currentPage = window.location.pathname.split("/").pop().toLowerCase() || "index.html";
+
+                const menuItems = document.querySelectorAll(".hm-head-moto-nav-list li");
+                menuItems.forEach(li => {
+                    li.classList.remove("active-li");
+                    const link = li.querySelector("a");
+                    if (!link) return;
+                    const fileName = link.getAttribute("href").split("/").pop().toLowerCase();
+                    if (fileName === currentPage) li.classList.add("active-li");
+                });
+            } catch (err) {
+                console.error("Header Load Error:", err);
+                document.getElementById('global-header').innerHTML =
+                    '<p style="padding:20px;color:red;">Header load fail: ' + err.message + '</p>';
+            }
+        }
+        loadHeader();
+    </script>
+
+
+
 </body>
 
 </html>
