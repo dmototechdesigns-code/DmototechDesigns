@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Dmototech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            background: #fff;
+        }
+
+        /* ===== LEFT PANEL ===== */
+        .left-panel {
+            flex: 1;
+            background: #0f0f1a;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .left-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -60px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-logo iconify-icon {
+            color: #DC2626;
+            font-size: 28px;
+        }
+
+        .brand-logo span {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .left-heading {
+            color: #fff;
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .left-heading .highlight {
+            color: #DC2626;
+        }
+
+        .left-subtext {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 50px;
+            max-width: 380px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 36px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            color: #DC2626;
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .testimonials {
+            margin-top: 45px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 360px;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-stars iconify-icon {
+            color: #DC2626;
+            font-size: 15px;
+        }
+
+        .testimonial-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #DC2626, #991B1B);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .author-name {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .author-role {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 11px;
+        }
+
+        /* ===== RIGHT PANEL ===== */
+        .right-panel {
+            flex: 1;
+            background: #ffffff;
+            padding: 60px 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0f0f1a;
+            letter-spacing: -0.8px;
+            margin-bottom: 6px;
+        }
+
+        .form-subtitle {
+            font-size: 14px;
+            color: #8a8a9a;
+            font-weight: 400;
+            margin-bottom: 36px;
+        }
+
+        .form-subtitle a {
+            color: #DC2626;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .form-subtitle a:hover {
+            text-decoration: underline;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #4a4a5a;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 7px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper iconify-icon.input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #b0b0c0;
+            font-size: 18px;
+            pointer-events: none;
+            transition: color 0.25s;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 14px 14px 14px 44px;
+            border: 1.5px solid #e2e2ea;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #0f0f1a;
+            background: #fafafa;
+            transition: all 0.25s ease;
+            outline: none;
+        }
+
+        .input-wrapper input::placeholder {
+            color: #c0c0cc;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #DC2626;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.07);
+        }
+
+        .input-wrapper input:focus~.input-icon {
+            color: #DC2626;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #b0b0c0;
+            font-size: 18px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .toggle-password:hover {
+            color: #DC2626;
+        }
+
+        .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 26px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .custom-checkbox {
+            position: relative;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            border: 1.5px solid #d0d0da;
+            border-radius: 4px;
+            background: #fafafa;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkmark iconify-icon {
+            color: #fff;
+            font-size: 12px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s;
+        }
+
+        .custom-checkbox input:checked~.checkmark {
+            background: #DC2626;
+            border-color: #DC2626;
+        }
+
+        .custom-checkbox input:checked~.checkmark iconify-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .checkbox-label {
+            font-size: 13px;
+            color: #6a6a7a;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .forgot-link {
+            font-size: 13px;
+            color: #DC2626;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .forgot-link:hover {
+            opacity: 0.75;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: #DC2626;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit:hover {
+            background: #B91C1C;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit .btn-loading {
+            display: none;
+        }
+
+        .btn-submit.loading .btn-text {
+            display: none;
+        }
+
+        .btn-submit.loading .btn-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 26px 0;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: #e8e8f0;
+        }
+
+        .divider-text {
+            font-size: 11px;
+            color: #a0a0b0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* Social Buttons */
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-social {
+            flex: 1;
+            padding: 12px;
+            border: 1.5px solid #e2e2ea;
+            border-radius: 10px;
+            background: #fafafa;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #4a4a5a;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .btn-social:hover {
+            border-color: #d0d0da;
+            background: #f0f0f5;
+            transform: translateY(-1px);
+        }
+
+        .btn-social iconify-icon {
+            font-size: 18px;
+        }
+
+        .btn-social.google iconify-icon {
+            color: #EA4335;
+        }
+
+        .btn-social.facebook iconify-icon {
+            color: #1877F2;
+        }
+
+        /* Connection Status */
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            padding: 10px 14px;
+            background: rgba(220, 38, 38, 0.04);
+            border: 1px solid rgba(220, 38, 38, 0.1);
+            border-radius: 8px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #DC2626;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+            }
+
+            50% {
+                opacity: 0.8;
+                box-shadow: 0 0 0 5px rgba(220, 38, 38, 0);
+            }
+        }
+
+        .connection-status span {
+            font-size: 12px;
+            color: #6a6a7a;
+            font-weight: 400;
+        }
+
+        .connection-status strong {
+            color: #DC2626;
+            font-weight: 600;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            padding: 14px 22px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            z-index: 1000;
+            transform: translateX(140%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: #DC2626;
+            color: #fff;
+        }
+
+        .toast.error {
+            background: #374151;
+            color: #fff;
+        }
+
+        /* Error state */
+        .input-wrapper input.input-error {
+            border-color: #DC2626;
+            background: #FEF2F2;
+        }
+
+        .error-msg {
+            font-size: 12px;
+            color: #DC2626;
+            margin-top: 5px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .error-msg.visible {
+            display: block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+
+            .left-panel {
+                min-height: auto;
+                padding: 40px 30px;
+            }
+
+            .left-heading {
+                font-size: 30px;
+            }
+
+            .stats-row {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 26px;
+            }
+
+            .testimonials {
+                display: none;
+            }
+
+            .right-panel {
+                min-height: auto;
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .left-panel {
+                padding: 30px 20px;
+            }
+
+            .left-heading {
+                font-size: 26px;
+            }
+
+            .brand-logo {
+                margin-bottom: 30px;
+            }
+
+            .right-panel {
+                padding: 30px 20px;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 14px;
+            }
+        }
+
+        .left-panel,
+        .right-panel {
+            animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <div class="brand-logo">
+            <iconify-icon icon="mdi:car-sports"></iconify-icon>
+            <span>Dmototech</span>
+        </div>
+
+        <h1 class="left-heading">WELCOME<br><span class="highlight">BACK</span></h1>
+        <p class="left-subtext">Sign in to access your dashboard, track orders, and manage your vehicle parts
+            collection.</p>
+
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12K+</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99%</div>
+                <div class="stat-label">Satisfaction</div>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <iconify-icon icon="mdi:star"></iconify-icon>
+                    <iconify-icon icon="mdi:star"></iconify-icon>
+                    <iconify-icon icon="mdi:star"></iconify-icon>
+                    <iconify-icon icon="mdi:star"></iconify-icon>
+                    <iconify-icon icon="mdi:star"></iconify-icon>
+                </div>
+                <p class="testimonial-text">"Best platform for genuine auto parts. Fast delivery and amazing customer
+                    support!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MK</div>
+                    <div>
+                        <div class="author-name">Mike K.</div>
+                        <div class="author-role">Verified Buyer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+        <div class="form-container">
+            <h2 class="form-title">SIGN IN</h2>
+            <p class="form-subtitle">Don't have an account? <a href="#">Create one</a></p>
+
+            <form id="loginForm" novalidate>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                        <iconify-icon icon="mdi:email-outline" class="input-icon"></iconify-icon>
+                    </div>
+                    <div class="error-msg" id="emailError">Please enter a valid email address</div>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                        <iconify-icon icon="mdi:lock-outline" class="input-icon"></iconify-icon>
+                        <button type="button" class="toggle-password" onclick="togglePassword()">
+                            <iconify-icon icon="mdi:eye-off-outline" id="eyeIcon"></iconify-icon>
+                        </button>
+                    </div>
+                    <div class="error-msg" id="passError">Password is required</div>
+                </div>
+
+                <div class="form-options">
+                    <div class="checkbox-group">
+                        <div class="custom-checkbox">
+                            <input type="checkbox" id="remember">
+                            <div class="checkmark">
+                                <iconify-icon icon="mdi:check"></iconify-icon>
+                            </div>
+                        </div>
+                        <label class="checkbox-label" for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span class="btn-text">Login</span>
+                    <span class="btn-loading">
+                        <span class="spinner"></span>
+                        Please wait...
+                    </span>
+                </button>
+            </form>
+
+            <div class="divider">
+                <div class="divider-line"></div>
+                <span class="divider-text">or continue with</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="social-buttons">
+                <button type="button" class="btn-social google" onclick="socialLogin('Google')">
+                    <iconify-icon icon="flat-color-icons:google"></iconify-icon>
+                    Google
+                </button>
+                <button type="button" class="btn-social facebook" onclick="socialLogin('Facebook')">
+                    <iconify-icon icon="logos:facebook"></iconify-icon>
+                    Facebook
+                </button>
+            </div>
+
+            <div class="connection-status">
+                <div class="status-dot"></div>
+                <span>Connection: <strong>Secure (SSL Encrypted)</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <iconify-icon icon="mdi:check-circle" id="toastIcon"></iconify-icon>
+        <span id="toastMsg"></span>
+    </div>
+
+    <script>
+        // Toggle password
+        function togglePassword() {
+            const p = document.getElementById('password');
+            const e = document.getElementById('eyeIcon');
+            if (p.type === 'password') {
+                p.type = 'text';
+                e.setAttribute('icon', 'mdi:eye-outline');
+            } else {
+                p.type = 'password';
+                e.setAttribute('icon', 'mdi:eye-off-outline');
+            }
+        }
+
+        // Clear error on typing
+        document.getElementById('email').addEventListener('input', function () {
+            this.classList.remove('input-error');
+            document.getElementById('emailError').classList.remove('visible');
+        });
+
+        document.getElementById('password').addEventListener('input', function () {
+            this.classList.remove('input-error');
+            document.getElementById('passError').classList.remove('visible');
+        });
+
+        // Toast
+        function showToast(msg, type = 'success') {
+            const t = document.getElementById('toast');
+            const i = document.getElementById('toastIcon');
+            const m = document.getElementById('toastMsg');
+            t.className = 'toast ' + type;
+            i.setAttribute('icon', type === 'success' ? 'mdi:check-circle' : 'mdi:alert-circle');
+            m.textContent = msg;
+            requestAnimationFrame(() => t.classList.add('show'));
+            setTimeout(() => t.classList.remove('show'), 3500);
+        }
+
+        // Form submit
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const pass = document.getElementById('password').value;
+            const btn = document.getElementById('submitBtn');
+            let valid = true;
+
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('email').classList.add('input-error');
+                document.getElementById('emailError').classList.add('visible');
+                valid = false;
+            }
+
+            if (!pass) {
+                document.getElementById('password').classList.add('input-error');
+                document.getElementById('passError').classList.add('visible');
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            btn.classList.add('loading');
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.classList.remove('loading');
+                btn.disabled = false;
+                showToast('Welcome back! Redirecting...', 'success');
+                this.reset();
+            }, 2000);
+        });
+
+        // Social
+        function socialLogin(provider) {
+            showToast(`Redirecting to ${provider}...`, 'success');
+        }
+
+        // Input focus icon color
+        document.querySelectorAll('.input-wrapper input').forEach(inp => {
+            inp.addEventListener('focus', function () {
+                const ic = this.parentElement.querySelector('.input-icon');
+                if (ic) ic.style.color = '#DC2626';
+            });
+            inp.addEventListener('blur', function () {
+                const ic = this.parentElement.querySelector('.input-icon');
+                if (ic) ic.style.color = '#b0b0c0';
+            });
+        });
+    </script>
+</body>
+
+</html>
